@@ -22,24 +22,42 @@ class CrawlMachine {
         sessionConnection = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     }
     
-    func StartCrawl() {
+    func startCrawl() {
         var link = Baselink + "\(page)"
         var url = NSURL(string: link)
         let crawlTask = sessionConnection.dataTaskWithURL(url!, completionHandler: {
             (data,res,err) -> Void in
-            if ((err) != nil) {
-                self.AnalysisProcess(data)
+            if (err === nil) {
+             self.AnalysisProcess(data)
             } else {
                 println(err);
             }
         })
+        crawlTask.resume();
     }
-    func AnalysisProcess(data: NSData){
+    private func AnalysisProcess(data: NSData){
         var err : NSError?
         let option = CInt(HTML_PARSE_NOERROR.value | HTML_PARSE_RECOVER.value)
         let html = NSString(data: data, encoding: NSUTF8StringEncoding)
         let parse = HTMLParser(html: html!, encoding: NSUTF8StringEncoding,option: option, error: &err)
-        
-        
+        var bodyNode = parse.body;
+        if let path = bodyNode?.xpath("//a[@target='_blank']/img[@alt]") {
+            for node in path {
+                makeUnsplashImage(node)
+            }
+        }
+    }
+    
+    private func makeUnsplashImage(node: HTMLNode) {
+        let unsplashImage = UnsplashImage()
+        unsplashImage.author = node.getAttributeNamed("alt")
+        unsplashImage.url = node.getAttributeNamed("src")
+        unsplashImage.height = node.getAttributeNamed("data-height").toInt()
+        unsplashImage.width = node.getAttributeNamed("data-width").toInt()
+        if unsplashImage.height > unsplashImage.width {
+            unsplashImage.type = ImageType.Vertical
+        } else {
+            unsplashImage.type = ImageType.Horizontal
+        }
     }
 }

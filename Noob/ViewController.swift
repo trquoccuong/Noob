@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var crawlMachine = CrawlMachine()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        crawlMachine.startCrawl()
     }
 
     override func didReceiveMemoryWarning() {

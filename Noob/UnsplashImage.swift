@@ -18,5 +18,8 @@ class UnsplashImage {
     var author : String!
     var width : Int!
     var height: Int!
+    init(){
+        
+    }
     
 }
