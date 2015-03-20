@@ -11,10 +11,15 @@ enum MachineStatus {
     case Stop
 }
 
+protocol CrawlMachineDelegate {
+    func endGetPageData(data: UnsplashImage)
+}
+
 import Foundation
 class CrawlMachine {
-    var sessionConnection: NSURLSession
+ private  var sessionConnection: NSURLSession
     var ImageArray: [UnsplashImage]!
+    var delegate : CrawlMachineDelegate!
     var status = MachineStatus.Stop
     var page = 1
     let Baselink = "https://unsplash.com/grid/filter?_=page%3D3&page="
@@ -34,7 +39,10 @@ class CrawlMachine {
             }
         })
         crawlTask.resume();
+    
     }
+    
+    
     private func AnalysisProcess(data: NSData){
         var err : NSError?
         let option = CInt(HTML_PARSE_NOERROR.value | HTML_PARSE_RECOVER.value)
@@ -51,13 +59,26 @@ class CrawlMachine {
     private func makeUnsplashImage(node: HTMLNode) {
         let unsplashImage = UnsplashImage()
         unsplashImage.author = node.getAttributeNamed("alt")
-        unsplashImage.url = node.getAttributeNamed("src")
-        unsplashImage.height = node.getAttributeNamed("data-height").toInt()
-        unsplashImage.width = node.getAttributeNamed("data-width").toInt()
-        if unsplashImage.height > unsplashImage.width {
+        unsplashImage.url = parseURL(node.getAttributeNamed("src"))
+        unsplashImage.maxHeight = node.getAttributeNamed("data-height").toInt()
+        unsplashImage.maxWidth = node.getAttributeNamed("data-width").toInt()
+        if unsplashImage.maxHeight > unsplashImage.maxWidth {
             unsplashImage.type = ImageType.Vertical
         } else {
             unsplashImage.type = ImageType.Horizontal
         }
+//        ImageArray.append(unsplashImage)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.delegate.endGetPageData(unsplashImage)
+        })
     }
+    
+    
+    private func parseURL(link: String) -> String{
+        let ranger = link.rangeOfString("?")?.startIndex
+        let fullLink = link.substringToIndex(ranger!)
+        return fullLink
+  }
+    
+    
 }

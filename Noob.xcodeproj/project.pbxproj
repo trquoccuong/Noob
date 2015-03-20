@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EA816021ABC85F700F76A1E /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA816011ABC85F700F76A1E /* CustomLayout.swift */; };
+		4EA816081ABC8CA300F76A1E /* DemoTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA816071ABC8CA300F76A1E /* DemoTable.swift */; };
 		4ECB74401ABC4BE600DB2509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB743F1ABC4BE600DB2509 /* AppDelegate.swift */; };
 		4ECB74421ABC4BE600DB2509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB74411ABC4BE600DB2509 /* ViewController.swift */; };
 		4ECB74451ABC4BE600DB2509 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB74431ABC4BE600DB2509 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EA816011ABC85F700F76A1E /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLayout.swift; path = ../CustomLayout.swift; sourceTree = "<group>"; };
+		4EA816071ABC8CA300F76A1E /* DemoTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTable.swift; sourceTree = "<group>"; };
 		4ECB743A1ABC4BE600DB2509 /* Noob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECB743E1ABC4BE600DB2509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECB743F1ABC4BE600DB2509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,11 +94,13 @@
 		4ECB743C1ABC4BE600DB2509 /* Noob */ = {
 			isa = PBXGroup;
 			children = (
+				4EA816011ABC85F700F76A1E /* CustomLayout.swift */,
 				4ECB74641ABC4EB800DB2509 /* HTMLNode.swift */,
 				4ECB74651ABC4EB800DB2509 /* HTMLParser.swift */,
 				4ECB74661ABC4EB800DB2509 /* Swift-HTML-Parser-Bridging-Header.h */,
 				4ECB745F1ABC4C0A00DB2509 /* GetData */,
 				4ECB743F1ABC4BE600DB2509 /* AppDelegate.swift */,
+				4EA816071ABC8CA300F76A1E /* DemoTable.swift */,
 				4ECB74411ABC4BE600DB2509 /* ViewController.swift */,
 				4ECB74431ABC4BE600DB2509 /* Main.storyboard */,
 				4ECB74461ABC4BE600DB2509 /* Images.xcassets */,
@@ -238,6 +244,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA816021ABC85F700F76A1E /* CustomLayout.swift in Sources */,
+				4EA816081ABC8CA300F76A1E /* DemoTable.swift in Sources */,
 				4ECB74421ABC4BE600DB2509 /* ViewController.swift in Sources */,
 				4ECB74401ABC4BE600DB2509 /* AppDelegate.swift in Sources */,
 				4ECB74611ABC4C2D00DB2509 /* GetLink.swift in Sources */,
@@ -376,7 +384,7 @@
 				INFOPLIST_FILE = Noob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ios27/Desktop/Noob/Noob/Swift-HTML-Parser-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/quoccuong/Desktop/Noob/Noob/Swift-HTML-Parser-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -392,7 +400,7 @@
 				INFOPLIST_FILE = Noob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ios27/Desktop/Noob/Noob/Swift-HTML-Parser-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/quoccuong/Desktop/Noob/Noob/Swift-HTML-Parser-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -449,6 +457,7 @@
 				4ECB745B1ABC4BE600DB2509 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ECB745C1ABC4BE600DB2509 /* Build configuration list for PBXNativeTarget "NoobTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +466,7 @@
 				4ECB745E1ABC4BE600DB2509 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
