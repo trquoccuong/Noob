@@ -15,6 +15,9 @@
 		4ECB74561ABC4BE600DB2509 /* NoobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB74551ABC4BE600DB2509 /* NoobTests.swift */; };
 		4ECB74611ABC4C2D00DB2509 /* GetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB74601ABC4C2D00DB2509 /* GetLink.swift */; };
 		4ECB74631ABC4CEC00DB2509 /* UnsplashImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB74621ABC4CEC00DB2509 /* UnsplashImage.swift */; };
+		4ECB74671ABC4EB800DB2509 /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB74641ABC4EB800DB2509 /* HTMLNode.swift */; };
+		4ECB74681ABC4EB800DB2509 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB74651ABC4EB800DB2509 /* HTMLParser.swift */; };
+		4ECB746A1ABC4F2A00DB2509 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECB74691ABC4F2A00DB2509 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		4ECB74551ABC4BE600DB2509 /* NoobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoobTests.swift; sourceTree = "<group>"; };
 		4ECB74601ABC4C2D00DB2509 /* GetLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLink.swift; sourceTree = "<group>"; };
 		4ECB74621ABC4CEC00DB2509 /* UnsplashImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashImage.swift; sourceTree = "<group>"; };
+		4ECB74641ABC4EB800DB2509 /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLNode.swift; sourceTree = "<group>"; };
+		4ECB74651ABC4EB800DB2509 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		4ECB74661ABC4EB800DB2509 /* Swift-HTML-Parser-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-HTML-Parser-Bridging-Header.h"; sourceTree = "<group>"; };
+		4ECB74691ABC4F2A00DB2509 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECB746A1ABC4F2A00DB2509 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,7 @@
 		4ECB74311ABC4BE600DB2509 = {
 			isa = PBXGroup;
 			children = (
+				4ECB74691ABC4F2A00DB2509 /* libxml2.dylib */,
 				4ECB743C1ABC4BE600DB2509 /* Noob */,
 				4ECB74521ABC4BE600DB2509 /* NoobTests */,
 				4ECB743B1ABC4BE600DB2509 /* Products */,
@@ -81,6 +90,9 @@
 		4ECB743C1ABC4BE600DB2509 /* Noob */ = {
 			isa = PBXGroup;
 			children = (
+				4ECB74641ABC4EB800DB2509 /* HTMLNode.swift */,
+				4ECB74651ABC4EB800DB2509 /* HTMLParser.swift */,
+				4ECB74661ABC4EB800DB2509 /* Swift-HTML-Parser-Bridging-Header.h */,
 				4ECB745F1ABC4C0A00DB2509 /* GetData */,
 				4ECB743F1ABC4BE600DB2509 /* AppDelegate.swift */,
 				4ECB74411ABC4BE600DB2509 /* ViewController.swift */,
@@ -229,6 +241,8 @@
 				4ECB74421ABC4BE600DB2509 /* ViewController.swift in Sources */,
 				4ECB74401ABC4BE600DB2509 /* AppDelegate.swift in Sources */,
 				4ECB74611ABC4C2D00DB2509 /* GetLink.swift in Sources */,
+				4ECB74681ABC4EB800DB2509 /* HTMLParser.swift in Sources */,
+				4ECB74671ABC4EB800DB2509 /* HTMLNode.swift in Sources */,
 				4ECB74631ABC4CEC00DB2509 /* UnsplashImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,9 +368,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = Noob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ios27/Desktop/Noob/Noob/Swift-HTML-Parser-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -364,9 +384,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = Noob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ios27/Desktop/Noob/Noob/Swift-HTML-Parser-Bridging-Header.h";
 			};
 			name = Release;
 		};
